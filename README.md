@@ -1,2 +1,35 @@
-# mit-ocw-batch-downloader
-用于下载mit open course ware上的课程资源
+# MIT OCW 按类型批量下载器
+
+Windows 桌面小工具：先扫描 MIT OpenCourseWare 课程提供的资源类型，再选择要批量下载的类别。例如只选“习题集 / Problem Sets”，程序就只从该类别页面下载文件。
+
+## 启动
+
+需要安装 Python 3.9 或更新版本。程序只使用 Python 自带组件，不需要 `pip install`。
+
+1. 双击 `启动下载器.bat`。
+2. 在“MIT OCW 课程链接”框中粘贴课程主页、资源页或下载页链接，每行一门课。
+3. 选择保存位置，点击“扫描资源类型”。
+4. 在扫描出的列表中选择需要的类型。只想下载习题时，只选择“习题集 / Problem Sets”；按住 Ctrl 或 Shift 可以多选。
+5. 点击“下载所选类型”。
+
+每门课会单独保存到所选目录下的课程文件夹。下载记录会显示已完成、跳过和失败的文件。资源类型列表默认不选任何类别，避免误下其他内容。
+
+## 下载范围
+
+- 默认按你选择的资源类型下载，不会自动下载整门课程包。
+- 想下载整门课程时，额外勾选“额外下载整门课程 ZIP（包含所有资源类型）”。该压缩包包含所有资源类型，MIT OCW 说明包内不包含音频和视频。
+- 资源类型以每门课程下载页提供的分类为准；不提供分类页的课程不会退回到下载所有文件。
+- 程序只访问 MIT OCW 课程页面和其直接资源链接，不登录、不绕过访问限制，也不抓取第三方网站。
+
+MIT OCW 表示课程资料可免费下载；各项材料仍可能有不同许可要求，使用或再发布时请查看原课程的许可说明。
+
+- [MIT OCW 下载课程说明](https://ocw.mit.edu/courses/6-100l-introduction-to-cs-and-programming-using-python-fall-2022/download/)
+- [MIT OCW 使用说明与许可信息](https://ocw.mit.edu/pages/get-started/)
+
+## 命令行启动
+
+如果 `.bat` 文件没有启动，也可以在此文件夹打开命令提示符运行：
+
+```text
+py -3 mit_ocw_batch_downloader.py
+```
